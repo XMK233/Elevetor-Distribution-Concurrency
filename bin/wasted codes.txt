@@ -1,0 +1,108 @@
+/*
+		for (i = 0; i < finalQueue.getNum(); i++){
+			if (finalQueue.getRequest(i).used) continue;
+			tempRequesti = finalQueue.getRequest(i);
+			if (tempRequesti.getCategory() == "ER"){
+				tempFloori = tempRequesti.getElevator().getTarFloor();
+				tempReqTimei = tempRequesti.getElevator().getReqTime();
+			}
+			else if (tempRequesti.getCategory() == "FR"){
+				tempFloori = tempRequesti.getFloor().getCurFloor();
+				tempReqTimei = tempRequesti.getFloor().getReqTime();
+			}// get temporary data of the i 
+			if (curStatus.curFloor == 0 && curStatus.tarFloor == 0){
+				curStatus.curFloor = 1;
+				curStatus.dirStatus = "UP";
+				curStatus.tarFloor = finalQueue.getRequest(i).getFloor().getCurFloor();
+				ALS_Lines.add(tempRequestj);
+			}//the beginning of the ArrayList
+			for( j = i + 1; j < finalQueue.getNum(); j++){
+				tempRequestj = finalQueue.getRequest(j);
+				if (tempRequestj.getCategory().equals("ER")){
+					tempFloorj = tempRequestj.getElevator().getTarFloor();
+					tempReqTimej = tempRequestj.getElevator().getReqTime();
+				}
+				else if (tempRequestj.getCategory().equals("FR")){
+					tempFloorj = tempRequestj.getFloor().getCurFloor();
+					tempReqTimej = tempRequestj.getFloor().getReqTime();
+					tempDirectionj = tempRequestj.getFloor().getUpOrDown();
+				}// get temporary data of j
+				double timeLimit = Math.abs(curStatus.tarFloor - curStatus.curFloor) * 0.5;
+				if (tempRequestj.getCategory().equals("FR") && tempDirectionj.equals(curStatus))
+					continue;//FR请求,但方向不同，不捎带.
+				else if (tempFloorj <= curStatus.curFloor)
+					continue;//所有请求，方向不同，不捎带.
+				else if ((tempReqTimei + timeLimit) < tempReqTimej)
+					continue;//时间太晚，过去了.不捎带
+				else {
+					if(tempFloorj >= curStatus.curFloor && tempFloorj <= curStatus.tarFloor){
+						ALS_Lines.add(tempRequestj);
+						finalQueue.getRequest(j).used = true;
+						curStatus.curFloor = tempFloorj;
+					}
+					else 
+						continue;
+				}//能被捎带的	
+			}// traversal of the latter ones finding the requests that can be added.
+			this.ALS_Strings[this.num1] = toStringLines(ALS_Lines);
+			this.num1++;
+			
+			for (l = 0; i < ALS_Lines.size(); i++){
+				;
+			}
+			
+			//make it into the string and add it to ALS_Lines[];
+		}*/
+/*
+for(i = 0; i < finalQueue.getNum(); i++){
+	if (finalQueue.getRequest(i).used) continue;
+	tempRequesti = finalQueue.getRequest(i);
+	if (tempRequesti.getCategory() == "ER"){
+		tempFloori = tempRequesti.getElevator().getTarFloor();
+		tempReqTimei = tempRequesti.getElevator().getReqTime();
+		tempTypei = "ER";
+		tempDirectioni = "-";
+	}
+	else if (tempRequesti.getCategory() == "FR"){
+		tempTypei = "FR";
+		tempFloori = tempRequesti.getFloor().getCurFloor();
+		tempReqTimei = tempRequesti.getFloor().getReqTime();
+		tempDirectioni = tempRequesti.getFloor().getUpOrDown();
+	}// get temporary data of the i 
+	if (curStatus.curFloor == 0 && curStatus.tarFloor == 0){
+		curStatus.curFloor = 1;
+		curStatus.dirStatus = "UP";
+		curStatus.tarFloor = tempFloori;//finalQueue.getRequest(i).getFloor().getCurFloor()
+		ALS_Lines.add(tempRequesti);
+	}//the beginning of the ArrayList
+	
+	for( j = i + 1; j < finalQueue.getNum(); j++){
+		
+		tempRequestj = finalQueue.getRequest(j);
+		if (tempRequestj.getCategory().equals("ER")){
+			tempTypej = "ER";
+			tempFloorj = tempRequestj.getElevator().getTarFloor();
+			tempReqTimej = tempRequestj.getElevator().getReqTime();
+			tempDirectionj = "-";
+		}
+		else if (tempRequestj.getCategory().equals("FR")){
+			tempTypej = "FR";
+			tempFloorj = tempRequestj.getFloor().getCurFloor();
+			tempReqTimej = tempRequestj.getFloor().getReqTime();
+			tempDirectionj = tempRequestj.getFloor().getUpOrDown();
+		}// get temporary data of j
+		
+	}// traversal of the latter ones finding the requests that can be added.
+}*/
+
+
+/*Request tempRequesti = new Request();
+Request tempRequestj = new Request();
+Request tempRequestl = new Request();
+int tempFloori = 0, tempReqTimei = 0;
+int tempFloorj = 0, tempReqTimej = 0;
+String tempDirectioni = "";
+String tempDirectionj = "";
+String tempTypei = "";
+String tempTypej = "";
+double timeLimit = 0;*/
